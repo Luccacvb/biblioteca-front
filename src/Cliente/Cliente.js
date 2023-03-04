@@ -1,19 +1,19 @@
-import { useEffect, useState } from "react";
-import { Table, Form, Button } from "react-bootstrap";
+import { useEffect, useState } from "react"
+import { Table, Form, Button } from "react-bootstrap"
 import api from '../service/api'
-import { validateBr } from 'js-brasil';
-import { BsTrash } from 'react-icons/bs';
+import { validateBr } from 'js-brasil'
+import { BsTrash } from 'react-icons/bs'
 import { formatarCpf } from '../components/validar'
 
 function Cliente() {
-    const [clientes, setClientes] = useState([]);
+    const [clientes, setClientes] = useState([])
     const [nome, setNome] = useState('')
     const [cpf, setCpf] = useState('')
     const [isValid, setIsValid] = useState(false)
 
     useEffect(() => {
-        getClientes();
-    }, []);
+        getClientes()
+    }, [])
 
     async function getClientes() {
         await api.get('/cliente').then((response) => {
@@ -26,13 +26,13 @@ function Cliente() {
     async function cadastrarCliente() {
         await api.post('/cliente', { nome: nome, cpf: cpf })
             .then((response) => {
-                setNome('');
-                setCpf('');
-                getClientes();
+                setNome('')
+                setCpf('')
+                getClientes()
             })
             .catch((error) => {
-                alert(error);
-            });
+                alert(error)
+            })
     }
 
     async function exluir(id) {
@@ -54,7 +54,7 @@ function Cliente() {
                     <Form.Control
                         type="text"
                         onChange={(e) => {
-                            setNome(e.target.value);
+                            setNome(e.target.value)
                         }}
                         value={nome}
                         placeholder="Digite o nome do cliente"
@@ -67,12 +67,10 @@ function Cliente() {
                         isInvalid={isValid}
                         type="number"
                         onChange={(e) => {
-                            console.log(validateBr.cpf(cpf));
-                            setIsValid(validateBr.cpf(e.target.value))
-                            setCpf(e.target.value);
+                            setIsValid(!validateBr.cpf(e.target.value))
+                            setCpf(e.target.value)
                         }}
                         value={cpf}
-                        validated={false}
                         placeholder="Digite o CPF"
                         autoFocus
                     />
@@ -104,7 +102,7 @@ function Cliente() {
                 </tbody>
             </Table>
         </div>
-    );
+    )
 }
 
-export default Cliente;
+export default Cliente
