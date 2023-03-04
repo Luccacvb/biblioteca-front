@@ -45,7 +45,7 @@ function Livro() {
     }
 
     return (
-        <div className="container">
+        <div className="container-fluid">
             <Form>
                 <Form.Group className="mb-3" >
                     <Form.Label>Nome</Form.Label>

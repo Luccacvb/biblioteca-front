@@ -67,7 +67,7 @@ function Aluguel() {
   }
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <Form>
         <Form.Group className="mb-3" >
           <Form.Label>Cliente</Form.Label>
@@ -123,12 +123,12 @@ function Aluguel() {
                     moment(a.dataDevolucao).format("DD/MM/YYYY")}
                 </td>
                 <td>${a.Livro.valorDiaria}</td>
-                <td>{a.valorArrecadado}</td>
+                <td>${a.valorArrecadado}</td>
                 <td>
                   <Button variant="outline-danger" onClick={() => { exluir(a.id) }}>
                     <BsTrash />
                   </Button>
-                  <Button style={{marginLeft: 20}} variant="outline-primary" onClick={() => { devolver(a) }}>
+                  <Button style={{ marginLeft: 20 }} variant="outline-primary" onClick={() => { devolver(a) }}>
                     Devolver
                   </Button>
                 </td>

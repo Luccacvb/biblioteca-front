@@ -3,7 +3,7 @@ import { Table, Form, Button } from "react-bootstrap";
 import api from '../service/api'
 import { validateBr } from 'js-brasil';
 import { BsTrash } from 'react-icons/bs';
-import {formatarCpf} from '../components/validar'
+import { formatarCpf } from '../components/validar'
 
 function Cliente() {
     const [clientes, setClientes] = useState([]);
@@ -47,7 +47,7 @@ function Cliente() {
     }
 
     return (
-        <div className="container">
+        <div className="container-fluid">
             <Form >
                 <Form.Group className="mb-3" >
                     <Form.Label>Nome</Form.Label>
