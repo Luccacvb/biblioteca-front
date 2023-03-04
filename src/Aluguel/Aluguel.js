@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { Button, Form, Table } from "react-bootstrap";
-import api from "./service/api";
+import api from "../service/api";
 import moment from "moment";
 import { BsTrash } from 'react-icons/bs';
 
-function App() {
+function Aluguel() {
   const [livros, setLivros] = useState([]);
   const [clientes, setClientes] = useState([]);
 
@@ -141,4 +141,4 @@ function App() {
   );
 }
 
-export default App;
+export default Aluguel
